@@ -21,7 +21,7 @@
       <h2>Assistify</h2>
     </div>
 
-    <!-- Menü-Toggle (für Mobil) -->
+    <!-- Menü-Toggle -->
     <div class="menu-toggle" id="menu-toggle">
       <span></span>
       <span></span>
@@ -81,8 +81,10 @@
   <script>
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
+
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
+      menuToggle.classList.toggle('open');
     });
   </script>
 </body>

@@ -87,11 +87,12 @@ nav a:hover {
   color: var(--accent);
 }
 
-/* Mobile Menü-Button */
+/* Menü Toggle */
 .menu-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  z-index: 200;
 }
 
 .menu-toggle span {
@@ -101,6 +102,18 @@ nav a:hover {
   margin-bottom: 4px;
   border-radius: 2px;
   transition: all 0.3s ease;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
 }
 
 /* HERO SECTION */
@@ -200,15 +213,14 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   header {
-    flex-wrap: wrap;
-    justify-content: space-between;
+    padding: 10px 20px;
   }
 
   .logo-img {
-    height: 120px;
+    height: 90px; /* kleineres Logo auf Handy */
   }
 
   .brand-name {
@@ -220,23 +232,27 @@ footer a:hover {
   }
 
   .brand-name h2 {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
   nav {
     display: none;
     flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 80px;
-    right: 20px;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    height: 100vh;
+    width: 220px;
     background: var(--card-bg);
-    padding: 15px;
-    border-radius: 10px;
+    padding: 80px 20px;
+    border-radius: 0;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+    transition: right 0.4s ease;
   }
 
   nav.active {
-    display: flex;
+    right: 0; /* smooth slide in */
   }
 
   .menu-toggle {
