@@ -24,7 +24,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
+  padding: 15px 60px;
   background: rgba(20, 20, 25, 0.8);
   position: sticky;
   top: 0;
@@ -32,35 +32,35 @@ header {
   z-index: 100;
 }
 
-/* Zentrierter Bereich mit Logo + Text */
-.header-center {
-  flex: 1;
+/* Logo links mit Abstand und Text */
+.logo-area {
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 15px;
 }
 
 .logo-link {
   display: flex;
-  flex-direction: column;
   align-items: center;
   text-decoration: none;
+  gap: 15px;
 }
 
 .logo-img {
-  height: 80px;
-  margin-bottom: 5px;
+  height: 110px;
+  width: auto;
 }
 
 .logo-text {
   color: var(--accent);
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   font-weight: 700;
 }
 
+/* Navigation */
 nav {
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 nav a {
