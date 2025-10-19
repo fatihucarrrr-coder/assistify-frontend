@@ -32,7 +32,7 @@ header {
   z-index: 100;
 }
 
-/* Logo links */
+/* Logo */
 .logo-area {
   display: flex;
   align-items: center;
@@ -55,7 +55,7 @@ header {
   transform: scale(1.05);
 }
 
-/* Markenname mittig */
+/* Markenname */
 .brand-name {
   position: absolute;
   left: 50%;
@@ -64,13 +64,13 @@ header {
 
 .brand-name h2 {
   color: var(--accent);
-  font-size: 2.6rem; /* vorher 2.1rem → jetzt sichtbar größer */
+  font-size: 2.6rem;
   font-weight: 800;
   text-shadow: 0 0 10px rgba(0, 194, 255, 0.5), 0 0 20px rgba(0, 194, 255, 0.3);
   letter-spacing: 0.5px;
 }
 
-/* Navigation rechts */
+/* Navigation */
 nav {
   display: flex;
   gap: 25px;
@@ -85,6 +85,22 @@ nav a {
 
 nav a:hover {
   color: var(--accent);
+}
+
+/* Mobile Menü-Button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background: var(--text);
+  margin-bottom: 4px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
 /* HERO SECTION */
@@ -120,7 +136,7 @@ nav a:hover {
   background: var(--hover);
 }
 
-/* PRICING SECTION */
+/* PRICING */
 .pricing {
   display: flex;
   justify-content: center;
@@ -184,17 +200,46 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Responsiv */
-@media (max-width: 768px) {
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   .logo-img {
     height: 120px;
   }
 
+  .brand-name {
+    position: relative;
+    order: 3;
+    width: 100%;
+    text-align: center;
+    margin-top: -10px;
+  }
+
   .brand-name h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   nav {
     display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
   }
 }
