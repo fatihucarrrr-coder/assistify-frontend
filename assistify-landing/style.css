@@ -32,10 +32,30 @@ header {
   z-index: 100;
 }
 
-/* Nur Logo links */
+/* Zentrierter Bereich mit Logo + Text */
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
 .logo-img {
-  height: 70px;
-  display: block;
+  height: 80px;
+  margin-bottom: 5px;
+}
+
+.logo-text {
+  color: var(--accent);
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 nav {
@@ -75,15 +95,17 @@ nav a:hover {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 90px;
     right: 30px;
     background: var(--card-bg);
     border-radius: 10px;
     padding: 15px;
   }
+
   nav.active {
     display: flex;
   }
+
   .menu-toggle {
     display: flex;
   }
