@@ -4,198 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assistify – Ihr KI-Kundensupport</title>
-  <style>
-    :root {
-      --bg: #0f1116;
-      --text: #e8e8e8;
-      --accent: #00c2ff;
-      --card-bg: #1b1d23;
-      --hover: #00b0e6;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: rgba(20, 20, 25, 0.8);
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(10px);
-      z-index: 100;
-    }
-
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    nav {
-      display: flex;
-      gap: 20px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 500;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    /* Hamburger Menu */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: var(--text);
-      margin-bottom: 4px;
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 30px;
-        background: var(--card-bg);
-        border-radius: 10px;
-        padding: 15px;
-      }
-      nav.active {
-        display: flex;
-      }
-      .menu-toggle {
-        display: flex;
-      }
-    }
-
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 120px 20px 80px;
-    }
-
-    .hero h1 {
-      font-size: 2.8rem;
-      color: var(--accent);
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-bottom: 25px;
-    }
-
-    .cta-btn {
-      background: var(--accent);
-      border: none;
-      color: #fff;
-      font-weight: bold;
-      padding: 14px 28px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background: var(--hover);
-    }
-
-    /* Pricing */
-    .pricing {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 30px;
-      padding: 80px 20px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      padding: 30px;
-      border-radius: 15px;
-      width: 280px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .card h3 {
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .price {
-      font-size: 2rem;
-      margin: 10px 0;
-    }
-
-    .card ul {
-      list-style: none;
-      text-align: left;
-      margin: 15px 0;
-    }
-
-    .card ul li {
-      padding: 5px 0;
-      font-size: 0.95rem;
-      color: #ccc;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      border-top: 1px solid #222;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-      margin: 0 8px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <header>
-    <div class="logo">Assistify</div>
+    <div class="logo">
+      <img src="assistify_logo.png" alt="Assistify Logo" class="logo-img">
+      <span class="logo-text">Assistify</span>
+    </div>
+
     <div class="menu-toggle" id="menu-toggle">
       <span></span>
       <span></span>
       <span></span>
     </div>
+
     <nav id="nav-menu">
       <a href="index.html">Home</a>
       <a href="#">Login</a>
@@ -221,6 +45,7 @@
         <li>E-Mail-Integration</li>
       </ul>
     </div>
+
     <div class="card">
       <h3>Business</h3>
       <p class="price">149 € / Monat</p>
@@ -230,6 +55,7 @@
         <li>24/7 Prioritäts-Support</li>
       </ul>
     </div>
+
     <div class="card">
       <h3>Einmalkauf</h3>
       <p class="price">499 € einmalig</p>
@@ -245,12 +71,6 @@
     <p>© 2025 Assistify | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
   </footer>
 
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
