@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Header / Navigation */
+/* HEADER */
 header {
   display: flex;
   justify-content: space-between;
@@ -32,24 +32,24 @@ header {
   z-index: 100;
 }
 
-.logo {
+/* Logo + Text */
+.logo-link {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 }
 
-.logo-img {
-  height: 45px;
-  width: auto;
+.logo-link img {
+  height: 80px;
 }
 
-.logo-text {
-  font-size: 1.6rem;
-  font-weight: 700;
+.logo-link span {
   color: var(--accent);
+  font-weight: 700;
+  font-size: 1.7rem;
 }
 
-/* Navigation */
 nav {
   display: flex;
   gap: 20px;
@@ -101,7 +101,7 @@ nav a:hover {
   }
 }
 
-/* Hero Section */
+/* HERO SECTION */
 .hero {
   text-align: center;
   padding: 120px 20px 80px;
@@ -134,7 +134,7 @@ nav a:hover {
   background: var(--hover);
 }
 
-/* Pricing Section */
+/* PRICING SECTION */
 .pricing {
   display: flex;
   justify-content: center;
@@ -149,7 +149,7 @@ nav a:hover {
   border-radius: 15px;
   width: 280px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 
@@ -179,7 +179,7 @@ nav a:hover {
   color: #ccc;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
   text-align: center;
   padding: 25px;
@@ -196,24 +196,4 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
-}
-
-/* Logo Styling */
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--accent);
-  font-size: 1.6rem;
-  font-weight: 700;
-  gap: 10px;
-}
-
-.logo-link img {
-  height: 80px; /* Logo größer */
-}
-
-.logo-link span {
-  font-size: 1.5rem;
-  color: var(--accent);
 }
