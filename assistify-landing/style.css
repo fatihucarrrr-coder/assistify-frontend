@@ -45,7 +45,7 @@ header {
 }
 
 .logo-img {
-  height: 170px;
+  height: 55px;
   width: auto;
   filter: drop-shadow(0 0 8px rgba(0, 194, 255, 0.3));
   transition: transform 0.3s ease;
@@ -64,7 +64,7 @@ header {
 
 .brand-name h2 {
   color: var(--accent);
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   font-weight: 800;
   text-shadow: 0 0 10px rgba(0, 194, 255, 0.5), 0 0 20px rgba(0, 194, 255, 0.3);
   letter-spacing: 0.5px;
@@ -224,12 +224,12 @@ footer a:hover {
   }
 
   .logo-img {
-    height: 55px; /* viel kleiner */
+    height: 45px; /* kleiner auf Handy */
   }
 
   .brand-name {
     position: absolute;
-    top: 20px;
+    top: 18px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -238,8 +238,9 @@ footer a:hover {
     font-size: 1.8rem;
   }
 
+  /* Fix fürs mobile Menü */
   nav {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: fixed;
@@ -251,15 +252,16 @@ footer a:hover {
     padding: 80px 20px;
     box-shadow: -2px 0 10px rgba(0,0,0,0.3);
     transition: right 0.4s ease;
+    z-index: 150;
   }
 
   nav.active {
-    right: 0;
+    right: 0; /* <-- jetzt sichtbar */
   }
 
   .menu-toggle {
     display: flex;
-    top: 22px;
+    top: 20px;
     right: 20px;
   }
 
