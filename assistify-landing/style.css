@@ -4,9 +4,9 @@
   --accent: #00c2ff;
   --card-bg: #1b1d23;
   --hover: #00b0e6;
-  --overlay: rgba(0, 0, 0, 0.5);
 }
 
+/* Grundstruktur */
 * {
   margin: 0;
   padding: 0;
@@ -20,12 +20,12 @@ body {
   overflow-x: hidden;
 }
 
-/* HEADER */
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 80px;
+  padding: 20px 40px;
   background: rgba(20, 20, 25, 0.8);
   position: sticky;
   top: 0;
@@ -33,134 +33,69 @@ header {
   z-index: 100;
 }
 
-/* Logo */
-.logo-area {
-  display: flex;
-  align-items: center;
-}
-
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
+/* Logo-Bereich */
 .logo-img {
-  height: 150px; /* Groß auf Desktop */
+  height: 90px; /* Auf Desktop schön groß */
   width: auto;
-  filter: drop-shadow(0 0 12px rgba(0, 194, 255, 0.5));
-  transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-  transform: scale(1.05);
-}
-
-/* Markenname (zentriert oben) */
-.brand-name {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  transition: all 0.3s ease;
 }
 
 .brand-name h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
   color: var(--accent);
-  font-size: 2.5rem;
-  font-weight: 800;
-  text-shadow: 0 0 12px rgba(0, 194, 255, 0.7), 0 0 25px rgba(0, 194, 255, 0.4);
-  letter-spacing: 0.5px;
+  text-align: center;
 }
 
-/* Menü Toggle (immer sichtbar jetzt!) */
-.menu-toggle {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  z-index: 300;
-  position: absolute;
-  top: 35px;
-  right: 60px;
-}
-
-.menu-toggle span {
-  height: 3px;
-  width: 30px;
-  background: var(--text);
-  margin-bottom: 6px;
-  border-radius: 2px;
-  transition: all 0.35s ease;
-  transform-origin: center;
-}
-
-/* X-Symbol */
-.menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-  width: 32px;
-}
-
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-  width: 32px;
-}
-
-/* NAVIGATION (ausgeblendet bis geöffnet) */
+/* Navigation */
 nav {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: fixed;
-  top: 0;
-  right: -300px;
-  height: 100vh;
-  width: 280px;
-  background: var(--card-bg);
-  padding: 100px 30px;
-  box-shadow: -3px 0 15px rgba(0, 0, 0, 0.4);
-  transition: right 0.5s ease;
-  z-index: 250;
-}
-
-nav.active {
-  right: 0;
+  gap: 20px;
+  transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
 nav a {
   text-decoration: none;
   color: var(--text);
-  font-size: 1.2rem;
   font-weight: 500;
-  margin: 18px 0;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 nav a:hover {
   color: var(--accent);
 }
 
-/* Overlay für Hintergrund */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle span {
+  height: 3px;
   width: 100%;
-  height: 100%;
-  background: var(--overlay);
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* X-Effekt */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.open span:nth-child(2) {
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease;
-  z-index: 200;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
-.overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* HERO SECTION */
+/* Hero-Bereich */
 .hero {
   text-align: center;
   padding: 120px 20px 80px;
@@ -193,7 +128,7 @@ nav a:hover {
   background: var(--hover);
 }
 
-/* PRICING SECTION */
+/* Pricing-Karten */
 .pricing {
   display: flex;
   justify-content: center;
@@ -208,7 +143,7 @@ nav a:hover {
   border-radius: 15px;
   width: 280px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
 }
 
@@ -238,7 +173,7 @@ nav a:hover {
   color: #ccc;
 }
 
-/* FOOTER */
+/* Footer */
 footer {
   text-align: center;
   padding: 25px;
@@ -257,39 +192,49 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 900px) {
+/* --- Responsive Design (Mobile & Tablet) --- */
+@media (max-width: 950px) {
   header {
-    padding: 8px 15px;
-    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .logo-img {
-    height: 45px;
-  }
-
-  .brand-name {
-    position: absolute;
-    top: 18px;
-    left: 50%;
-    transform: translateX(-50%);
+    height: 60px; /* kleineres Logo */
   }
 
   .brand-name h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .menu-toggle {
-    top: 20px;
-    right: 20px;
+    display: flex;
+    position: relative;
+    z-index: 200;
   }
 
   nav {
-    width: 220px;
-    padding: 80px 20px;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    background: var(--card-bg);
+    padding-top: 100px;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  nav.active {
+    right: 0;
+    opacity: 1;
+    transform: translateX(0);
   }
 
   nav a {
-    font-size: 1.1rem;
+    padding: 15px;
+    font-size: 1.2rem;
   }
 }
