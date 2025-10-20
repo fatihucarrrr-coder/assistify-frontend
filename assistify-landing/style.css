@@ -4,6 +4,7 @@
   --accent: #00c2ff;
   --card-bg: #1b1d23;
   --hover: #00b0e6;
+  --overlay: rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -45,7 +46,7 @@ header {
 }
 
 .logo-img {
-  height: 150px; /* ✅ Jetzt noch größer für klar lesbaren Slogan */
+  height: 150px; /* Groß auf Desktop */
   width: auto;
   filter: drop-shadow(0 0 12px rgba(0, 194, 255, 0.5));
   transition: transform 0.3s ease;
@@ -70,32 +71,15 @@ header {
   letter-spacing: 0.5px;
 }
 
-/* Navigation */
-nav {
-  display: flex;
-  gap: 25px;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-nav a:hover {
-  color: var(--accent);
-}
-
-/* Menü Toggle */
+/* Menü Toggle (immer sichtbar jetzt!) */
 .menu-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
   cursor: pointer;
-  z-index: 200;
+  z-index: 300;
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 35px;
+  right: 60px;
 }
 
 .menu-toggle span {
@@ -108,7 +92,7 @@ nav a:hover {
   transform-origin: center;
 }
 
-/* ✅ Perfektes, symmetrisches X */
+/* X-Symbol */
 .menu-toggle.open span:nth-child(1) {
   transform: rotate(45deg) translate(6px, 6px);
   width: 32px;
@@ -121,6 +105,59 @@ nav a:hover {
 .menu-toggle.open span:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
   width: 32px;
+}
+
+/* NAVIGATION (ausgeblendet bis geöffnet) */
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  height: 100vh;
+  width: 280px;
+  background: var(--card-bg);
+  padding: 100px 30px;
+  box-shadow: -3px 0 15px rgba(0, 0, 0, 0.4);
+  transition: right 0.5s ease;
+  z-index: 250;
+}
+
+nav.active {
+  right: 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 18px 0;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+/* Overlay für Hintergrund */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+  z-index: 200;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* HERO SECTION */
@@ -228,7 +265,7 @@ footer a:hover {
   }
 
   .logo-img {
-    height: 45px; /* kompakter auf Handy */
+    height: 45px;
   }
 
   .brand-name {
@@ -242,35 +279,17 @@ footer a:hover {
     font-size: 1.8rem;
   }
 
-  /* Mobile Menü */
-  nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: fixed;
-    top: 0;
-    right: -250px;
-    height: 100vh;
-    width: 220px;
-    background: var(--card-bg);
-    padding: 80px 20px;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
-    transition: right 0.4s ease;
-    z-index: 150;
-  }
-
-  nav.active {
-    right: 0;
-  }
-
   .menu-toggle {
-    display: flex;
     top: 20px;
     right: 20px;
   }
 
-  .menu-toggle span {
-    width: 27px;
-    height: 3px;
+  nav {
+    width: 220px;
+    padding: 80px 20px;
+  }
+
+  nav a {
+    font-size: 1.1rem;
   }
 }
