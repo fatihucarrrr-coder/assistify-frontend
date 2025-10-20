@@ -6,7 +6,6 @@
   --hover: #00b0e6;
 }
 
-/* Grundstruktur */
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +19,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Header */
 header {
   display: flex;
   justify-content: space-between;
@@ -33,15 +31,15 @@ header {
   z-index: 100;
 }
 
-/* Logo-Bereich */
+/* Logo */
 .logo-img {
-  height: 90px; /* Auf Desktop schön groß */
+  height: 110px;
   width: auto;
   transition: all 0.3s ease;
 }
 
 .brand-name h2 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: var(--accent);
   text-align: center;
@@ -58,14 +56,31 @@ nav a {
   text-decoration: none;
   color: var(--text);
   font-weight: 500;
+  position: relative;
   transition: color 0.2s ease;
+}
+
+/* Schöner Hover-Effekt */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
 }
 
 nav a:hover {
   color: var(--accent);
 }
 
-/* Hamburger Menu */
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger Menü */
 .menu-toggle {
   display: none;
   flex-direction: column;
@@ -86,7 +101,7 @@ nav a:hover {
 
 /* X-Effekt */
 .menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(6px, 6px);
 }
 .menu-toggle.open span:nth-child(2) {
   opacity: 0;
@@ -95,7 +110,7 @@ nav a:hover {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Hero-Bereich */
+/* Hero */
 .hero {
   text-align: center;
   padding: 120px 20px 80px;
@@ -128,7 +143,7 @@ nav a:hover {
   background: var(--hover);
 }
 
-/* Pricing-Karten */
+/* Karten */
 .pricing {
   display: flex;
   justify-content: center;
@@ -192,7 +207,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* --- Responsive Design (Mobile & Tablet) --- */
+/* --- Mobile --- */
 @media (max-width: 950px) {
   header {
     flex-wrap: wrap;
@@ -200,7 +215,7 @@ footer a:hover {
   }
 
   .logo-img {
-    height: 60px; /* kleineres Logo */
+    height: 55px;
   }
 
   .brand-name h2 {
