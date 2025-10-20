@@ -75,17 +75,13 @@
   </section>
 
   <footer>
-    <p>© 2025 Assistify | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+    <p>© <span id="year"></span> Assistify | 
+      <a href="impressum.html">Impressum</a> | 
+      <a href="datenschutz.html">Datenschutz</a>
+    </p>
   </footer>
 
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      menuToggle.classList.toggle('open');
-    });
-  </script>
+  <!-- Neues Script -->
+  <script src="script.js"></script>
 </body>
 </html>

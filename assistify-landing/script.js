@@ -1,18 +1,27 @@
-// Mobile menu
-const menuBtn = document.getElementById('menu');
-const navlinks = document.getElementById('navlinks');
-menuBtn.addEventListener('click',()=>{
-  navlinks.style.display = navlinks.style.display === 'flex' ? 'none' : 'flex';
+// Menü-Elemente abrufen
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+// Öffnen / Schließen des Menüs mit Animation
+menuToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('active');
+  menuToggle.classList.toggle('open');
 });
-// Smooth-scroll for on-page links
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', (e)=>{
-    const target = document.querySelector(a.getAttribute('href'));
-    if(!target) return;
+
+// Smooth Scroll für interne Links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
     e.preventDefault();
-    target.scrollIntoView({behavior:'smooth', block:'start'});
-    if(window.innerWidth<950){ navlinks.style.display='none'; }
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    navMenu.classList.remove('active');
+    menuToggle.classList.remove('open');
   });
 });
-// Dynamic year
-document.getElementById('year').textContent = new Date().getFullYear();
+
+// Dynamisches Jahr im Footer
+const yearSpan = document.getElementById('year');
+if (yearSpan) {
+  yearSpan.textContent = new Date().getFullYear();
+}
