@@ -1,162 +1,60 @@
-/* ========== BASIS ========== */
-body {
+/* ===================================
+   GLOBAL STYLES
+=================================== */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-  background-color: #0f1116;
-  color: #fff;
-  text-align: center;
 }
 
-h1, h2, h3, p {
-  margin: 0;
+body {
+  background-color: #14161a;
+  color: #e0e0e0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* ========== HEADER ========== */
+/* ===================================
+   HEADER & NAVIGATION
+=================================== */
 header {
-  position: relative;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 25px 60px;
-  background-color: #111218;
-  box-sizing: border-box;
+  background-color: #1b1d23;
+  position: relative;
+  z-index: 100;
 }
 
 /* Logo links */
 .logo-area img {
-  height: 110px;
-  position: relative;
-  left: 0;
+  height: 140px;
 }
 
-/* Überschrift (Assistify) */
+/* ================================
+   TITEL "Assistify"
+================================ */
 .brand-name {
   position: absolute;
-  top: 45%;
   left: 50%;
+  transform: translateX(-50%); /* Perfekt zentriert */
+  top: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
 }
 
 .brand-name h2 {
-  font-size: 2.3rem;
-  color: #00bfff;
-  text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+  font-size: 2.5rem;
+  color: #00c2ff;
+  text-shadow: 0 0 15px #00c2ff;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-/* Menü-Toggle */
-.menu-toggle {
-  display: block;
-  cursor: pointer;
-  position: absolute;
-  right: 60px;
-  top: 40px;
-}
-
-.menu-toggle span {
-  display: block;
-  width: 30px;
-  height: 3px;
-  margin: 6px auto;
-  background: #00bfff;
-  border-radius: 3px;
-}
-
-/* ========== HERO SECTION ========== */
-.hero {
-  padding: 100px 20px 60px;
-}
-
-.hero h1 {
-  font-size: 2.4rem;
-  color: #00bfff;
-  text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
-}
-
-.hero p {
-  margin-top: 15px;
-  font-size: 1rem;
-  color: #cfcfcf;
-}
-
-.cta-btn {
-  background-color: #00bfff;
-  color: #fff;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 25px;
-  transition: all 0.3s ease;
-}
-
-.cta-btn:hover {
-  background-color: #0098cc;
-}
-
-/* ========== PREIS-KARTEN ========== */
-.pricing {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 50px 20px 100px;
-}
-
-.card {
-  background-color: #1a1d23;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 191, 255, 0.15);
-  width: 270px;
-  padding: 25px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 25px rgba(0, 191, 255, 0.3);
-}
-
-.card h3 {
-  color: #00bfff;
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-}
-
-.price {
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  color: #ccc;
-  font-size: 0.95rem;
-  line-height: 1.8;
-}
-
-/* ========== FOOTER ========== */
-footer {
-  background-color: #111218;
-  color: #ccc;
-  padding: 25px 0;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: #00bfff;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* ========== SIGNUP SEITE ========== */
+/* Registrierungsseite – Schrift rechts oben */
 .signup-page .brand-name {
   position: absolute;
   top: 40px;
@@ -166,102 +64,269 @@ footer a:hover {
   text-align: right;
 }
 
-.signup-section {
-  margin-top: 140px;
+/* Menü */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: #00c2ff;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+#nav-menu {
+  position: fixed;
+  right: -260px;
+  top: 0;
+  width: 260px;
+  height: 100vh;
+  background: #1b1d23;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 40px;
+  transition: right 0.4s ease;
+}
+
+#nav-menu.active {
+  right: 0;
+}
+
+#nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  margin: 20px 0;
+  transition: color 0.3s;
+}
+
+#nav-menu a:hover {
+  color: #00c2ff;
+}
+
+/* ===================================
+   HERO SECTION (Startseite)
+=================================== */
+.hero {
   text-align: center;
+  padding: 120px 20px 60px;
+  flex: 1;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  color: #00c2ff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #00c2ff;
+  font-weight: 600;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  padding: 14px 30px;
+  background-color: #00c2ff;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.4);
+}
+
+.cta-btn:hover {
+  background-color: #0099cc;
+  transform: scale(1.05);
+}
+
+/* ===================================
+   REGISTRIERUNG (Signup-Seite)
+=================================== */
+.signup-section {
+  text-align: center;
+  padding: 100px 20px;
 }
 
 .signup-section h1 {
-  color: #00bfff;
-  font-size: 2rem;
-  text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+  font-size: 2.5rem;
+  color: #00c2ff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #00c2ff;
+  font-weight: 600;
 }
 
 .signup-section p {
-  color: #cfcfcf;
-  margin-bottom: 30px;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 40px;
 }
 
+/* Felder untereinander */
 .signup-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
 }
 
 .signup-form input {
-  width: 300px;
-  padding: 12px 18px;
-  border-radius: 30px;
+  width: 320px;
+  padding: 14px 20px;
   border: none;
-  background-color: #1a1d23;
-  color: #fff;
-  box-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
+  border-radius: 50px;
+  background: #0e1013;
+  color: #e0e0e0;
   font-size: 1rem;
-  transition: box-shadow 0.3s ease;
+  box-shadow: inset 0 0 8px rgba(0, 194, 255, 0.2);
+  transition: all 0.3s ease;
 }
 
 .signup-form input:focus {
   outline: none;
-  box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.6);
+  background-color: #14161a;
+}
+
+.signup-form input::placeholder {
+  color: #aaa;
 }
 
 .signup-form button {
-  background-color: #00bfff;
-  color: #fff;
+  padding: 14px 25px;
   border: none;
-  padding: 10px 30px;
-  border-radius: 30px;
+  border-radius: 50px;
+  background-color: #00a8e0;
+  color: white;
   font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.3);
 }
 
 .signup-form button:hover {
-  background-color: #0098cc;
+  background-color: #0090c7;
+  transform: scale(1.05);
 }
 
-/* ========== MOBILE FIXES ========== */
+/* ===================================
+   PRICING SECTION
+=================================== */
+.pricing {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 70px 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #1b1d23;
+  border-radius: 20px;
+  padding: 35px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 0 25px rgba(0, 194, 255, 0.15);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(0, 194, 255, 0.4);
+}
+
+.card h3 {
+  color: #00c2ff;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.price {
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card ul li {
+  margin: 12px 0;
+  color: #ccc;
+  font-size: 1rem;
+}
+
+/* ===================================
+   FOOTER
+=================================== */
+footer {
+  text-align: center;
+  padding: 25px 10px;
+  background-color: #1b1d23;
+  color: #999;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+footer a {
+  color: #00c2ff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+=================================== */
 @media (max-width: 768px) {
   header {
-    padding: 15px 25px;
+    padding: 20px 30px;
   }
 
-  /* Logo kleiner und weiter nach links oben */
   .logo-area img {
-    height: 80px;
-    position: absolute;
-    top: 10px;
-    left: 15px;
-  }
-
-  /* Überschrift (Assistify) bleibt mittig */
-  .brand-name {
-    top: 50%;
-    left: 55%;
-    transform: translate(-50%, -50%);
+    height: 100px;
   }
 
   .brand-name h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
-  /* Menü rechts etwas tiefer */
-  .menu-toggle {
-    right: 15px;
-    top: 35px;
-  }
-
-  /* Karten untereinander */
-  .pricing {
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 80px;
-  }
-
-  .card {
-    width: 80%;
+  .signup-page .brand-name {
+    right: 30px;
+    top: 30px;
   }
 }
