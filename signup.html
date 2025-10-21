@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrierung – Assistify</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-area">
+      <a href="index.html" class="logo-link">
+        <img src="assistify_logo.png" alt="Assistify Logo" class="logo-img">
+      </a>
+    </div>
+    <div class="brand-name">
+      <h2>Assistify</h2>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Registriere dich bei Assistify</h1>
+    <p>Erstelle dein Konto und starte deinen eigenen KI-Support-Chatbot.</p>
+    
+    <form id="signup-form" class="signup-form">
+      <input type="text" id="name" name="name" placeholder="Vor- und Nachname" required>
+      <input type="email" id="email" name="email" placeholder="E-Mail-Adresse" required>
+      <input type="password" id="password" name="password" placeholder="Passwort" required>
+      <button type="submit" class="cta-btn">Registrieren</button>
+    </form>
+
+    <p id="message" class="message"></p>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Assistify | 
+      <a href="impressum.html">Impressum</a> | 
+      <a href="datenschutz.html">Datenschutz</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const form = document.getElementById('signup-form');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = {
+        name: form.name.value,
+        email: form.email.value,
+        password: form.password.value
+      };
+
+      const res = await fetch('http://localhost:3000/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      const result = await res.json();
+      message.textContent = result.message;
+      message.style.color = result.success ? 'limegreen' : 'red';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
