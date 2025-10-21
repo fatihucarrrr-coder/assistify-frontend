@@ -30,16 +30,20 @@ header {
   z-index: 100;
 }
 
+/* Logo links */
 .logo-area img {
-  height: 140px; /* großes Logo */
+  height: 140px;
 }
 
 /* ================================
-   ASSISTIFY TITEL (zentriert oder rechts)
+   TITEL "Assistify"
 ================================ */
 .brand-name {
-  text-align: center;
-  flex-grow: 1;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Perfekt zentriert */
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .brand-name h2 {
@@ -47,10 +51,16 @@ header {
   color: #00c2ff;
   text-shadow: 0 0 15px #00c2ff;
   font-weight: 600;
+  white-space: nowrap;
 }
 
-/* Auf der Registrierungsseite soll es rechts stehen */
+/* Registrierungsseite – Schrift rechts oben */
 .signup-page .brand-name {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  left: auto;
+  transform: none;
   text-align: right;
 }
 
@@ -181,7 +191,7 @@ header {
   margin-bottom: 40px;
 }
 
-/* Felder jetzt UNTEREINANDER */
+/* Felder untereinander */
 .signup-form {
   display: flex;
   flex-direction: column;
@@ -230,7 +240,7 @@ header {
 }
 
 /* ===================================
-   PRICING SECTION (Startseite)
+   PRICING SECTION
 =================================== */
 .pricing {
   display: flex;
@@ -311,16 +321,12 @@ footer a:hover {
     height: 100px;
   }
 
-  .pricing {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 85%;
-  }
-
   .brand-name h2 {
     font-size: 2rem;
+  }
+
+  .signup-page .brand-name {
+    right: 30px;
+    top: 30px;
   }
 }
