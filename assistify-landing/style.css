@@ -316,7 +316,8 @@ footer a:hover {
   /* Header überall gleich hoch */
   header,
   .signup-page header {
-    padding: 35px 25px; /* Einheitliche Höhe */
+    padding: 35px 25px;
+    min-height: 130px; /* sorgt für gleiche Höhe */
   }
 
   /* Logo: klein, links & leicht höher */
