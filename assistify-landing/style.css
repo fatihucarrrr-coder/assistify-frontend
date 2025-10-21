@@ -314,10 +314,15 @@ footer a:hover {
 =================================== */
 @media (max-width: 768px) {
   /* Header überall gleich hoch */
-  header,
+  header {
+    padding: 35px 25px;
+    min-height: 130px;
+  }
+
+  /* Sign-up-Seite bekommt etwas mehr Höhe */
   .signup-page header {
     padding: 35px 25px;
-    min-height: 130px; /* sorgt für gleiche Höhe */
+    min-height: 150px; /* +20px extra */
   }
 
   /* Logo: klein, links & leicht höher */
