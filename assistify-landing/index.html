@@ -8,7 +8,6 @@
 </head>
 
 <body>
-  <!-- HEADER -->
   <header>
     <!-- Logo links -->
     <div class="logo-area">
@@ -22,7 +21,7 @@
       <h2>Assistify</h2>
     </div>
 
-    <!-- Menü-Toggle (für mobile Ansicht) -->
+    <!-- Menü-Toggle -->
     <div class="menu-toggle" id="menu-toggle">
       <span></span>
       <span></span>
@@ -39,14 +38,12 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
   <section class="hero">
     <h1>Ihr smarter KI-Kundensupport</h1>
     <p>Automatisieren Sie Ihren Kundensupport mit KI – und sparen Sie täglich Zeit, Geld und Nerven.</p>
-    <a href="signup.html" class="cta-btn">Jetzt starten</a>
+    <button class="cta-btn">Jetzt starten</button>
   </section>
 
-  <!-- PREIS-SECTION -->
   <section class="pricing">
     <div class="card">
       <h3>Starter</h3>
@@ -57,7 +54,6 @@
         <li>E-Mail-Integration</li>
       </ul>
     </div>
-
     <div class="card">
       <h3>Business</h3>
       <p class="price">149 € / Monat</p>
@@ -67,7 +63,6 @@
         <li>24/7 Prioritäts-Support</li>
       </ul>
     </div>
-
     <div class="card">
       <h3>Einmalkauf</h3>
       <p class="price">499 € einmalig</p>
@@ -79,28 +74,14 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <p>© <span id="year"></span> Assistify |
-      <a href="impressum.html">Impressum</a> |
+    <p>© <span id="year"></span> Assistify | 
+      <a href="impressum.html">Impressum</a> | 
       <a href="datenschutz.html">Datenschutz</a>
     </p>
   </footer>
 
-  <!-- Skript -->
+  <!-- Neues Script -->
   <script src="script.js"></script>
-  <script>
-    // Automatische Jahreszahl im Footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Menü-Toggle für Mobile
-    const toggle = document.getElementById("menu-toggle");
-    const nav = document.getElementById("nav-menu");
-
-    toggle.addEventListener("click", () => {
-      nav.classList.toggle("active");
-      toggle.classList.toggle("open");
-    });
-  </script>
 </body>
 </html>
