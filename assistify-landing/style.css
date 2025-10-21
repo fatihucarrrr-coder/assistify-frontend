@@ -31,7 +31,12 @@ header {
 }
 
 .logo-area img {
-  height: 140px; /* Größeres Logo */
+  height: 140px; /* Logo groß und sichtbar mit Slogan */
+}
+
+.brand-name {
+  text-align: center;
+  flex-grow: 1;
 }
 
 .brand-name h2 {
@@ -39,8 +44,6 @@ header {
   color: #00c2ff;
   text-shadow: 0 0 15px #00c2ff;
   font-weight: 600;
-  text-align: center;
-  margin: 0 auto;
 }
 
 .menu-toggle {
@@ -148,6 +151,76 @@ header {
 }
 
 /* ===================================
+   SIGNUP PAGE
+=================================== */
+.signup-section {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.signup-section h1 {
+  font-size: 2.5rem;
+  color: #00c2ff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #00c2ff;
+  font-weight: 600;
+}
+
+.signup-section p {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.signup-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.signup-form input {
+  width: 260px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 50px;
+  background: #0e1013;
+  color: #e0e0e0;
+  font-size: 1rem;
+  box-shadow: inset 0 0 8px rgba(0, 194, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.signup-form input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.6);
+  background-color: #14161a;
+}
+
+.signup-form input::placeholder {
+  color: #aaa;
+}
+
+.signup-form button {
+  padding: 14px 25px;
+  border: none;
+  border-radius: 50px;
+  background-color: #00a8e0;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.3);
+}
+
+.signup-form button:hover {
+  background-color: #0090c7;
+  transform: scale(1.05);
+}
+
+/* ===================================
    PRICING SECTION
 =================================== */
 .pricing {
@@ -197,58 +270,6 @@ header {
 }
 
 /* ===================================
-   SIGNUP FORM (Schöne dunkle Felder)
-=================================== */
-.signup-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.signup-form input {
-  width: 350px;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 50px;
-  background: #0f1114;
-  color: #e0e0e0;
-  font-size: 1rem;
-  box-shadow: inset 0 0 8px rgba(0, 194, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.signup-form input:focus {
-  outline: none;
-  box-shadow: 0 0 12px rgba(0, 194, 255, 0.6);
-  background-color: #14161a;
-}
-
-.signup-form input::placeholder {
-  color: #999;
-}
-
-.signup-form button {
-  width: 200px;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 50px;
-  background-color: #00a8e0;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.3);
-}
-
-.signup-form button:hover {
-  background-color: #0090c7;
-  transform: scale(1.05);
-}
-
-/* ===================================
    FOOTER
 =================================== */
 footer {
@@ -288,6 +309,14 @@ footer a:hover {
 
   .card {
     width: 85%;
+  }
+
+  .signup-form {
+    flex-direction: column;
+  }
+
+  .signup-form input {
+    width: 80%;
   }
 
   .brand-name h2 {
