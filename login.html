@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Assistify</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="signup-page">
+    <header>
+      <div class="logo-area">
+        <a href="index.html">
+          <img src="images/logo.png" alt="Assistify Logo" />
+        </a>
+      </div>
+      <div class="brand-name">
+        <h2>Assistify</h2>
+      </div>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="nav-menu">
+        <a href="index.html">Startseite</a>
+        <a href="signup.html">Registrieren</a>
+        <a href="login.html">Login</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+    </header>
+
+    <section class="signup-section">
+      <h1>Einloggen bei Assistify</h1>
+      <p>Melde dich an, um auf dein Konto zuzugreifen.</p>
+
+      <form class="signup-form">
+        <input type="email" placeholder="E-Mail-Adresse" required />
+        <input type="password" placeholder="Passwort" required />
+        <button type="submit">Login</button>
+      </form>
+    </section>
+
+    <footer>
+      © Assistify |
+      <a href="#">Impressum</a> |
+      <a href="#">Datenschutz</a>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("open");
+        navMenu.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
