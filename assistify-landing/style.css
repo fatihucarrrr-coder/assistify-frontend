@@ -41,7 +41,7 @@ header {
 .brand-name {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%); /* Perfekt zentriert */
+  transform: translateX(-50%);
   top: 50%;
   transform: translate(-50%, -50%);
 }
@@ -317,8 +317,10 @@ footer a:hover {
     padding: 20px 30px;
   }
 
+  /* Logo auf Handy kleiner & leicht nach links */
   .logo-area img {
-    height: 100px;
+    height: 80px !important;
+    margin-left: 5px !important;
   }
 
   .brand-name h2 {
