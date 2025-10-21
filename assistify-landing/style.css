@@ -31,9 +31,12 @@ header {
 }
 
 .logo-area img {
-  height: 140px; /* Logo groß und sichtbar mit Slogan */
+  height: 140px; /* großes Logo */
 }
 
+/* ================================
+   ASSISTIFY TITEL (zentriert oder rechts)
+================================ */
 .brand-name {
   text-align: center;
   flex-grow: 1;
@@ -46,6 +49,12 @@ header {
   font-weight: 600;
 }
 
+/* Auf der Registrierungsseite soll es rechts stehen */
+.signup-page .brand-name {
+  text-align: right;
+}
+
+/* Menü */
 .menu-toggle {
   display: flex;
   flex-direction: column;
@@ -108,7 +117,7 @@ header {
 }
 
 /* ===================================
-   HERO SECTION
+   HERO SECTION (Startseite)
 =================================== */
 .hero {
   text-align: center;
@@ -151,7 +160,7 @@ header {
 }
 
 /* ===================================
-   SIGNUP PAGE
+   REGISTRIERUNG (Signup-Seite)
 =================================== */
 .signup-section {
   text-align: center;
@@ -172,16 +181,16 @@ header {
   margin-bottom: 40px;
 }
 
+/* Felder jetzt UNTEREINANDER */
 .signup-form {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .signup-form input {
-  width: 260px;
+  width: 320px;
   padding: 14px 20px;
   border: none;
   border-radius: 50px;
@@ -221,7 +230,7 @@ header {
 }
 
 /* ===================================
-   PRICING SECTION
+   PRICING SECTION (Startseite)
 =================================== */
 .pricing {
   display: flex;
@@ -309,14 +318,6 @@ footer a:hover {
 
   .card {
     width: 85%;
-  }
-
-  .signup-form {
-    flex-direction: column;
-  }
-
-  .signup-form input {
-    width: 80%;
   }
 
   .brand-name h2 {
