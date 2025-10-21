@@ -1,101 +1,62 @@
-:root {
-  --bg: #0f1116;
-  --text: #e8e8e8;
-  --accent: #00c2ff;
-  --card-bg: #1b1d23;
-  --hover: #00b0e6;
-  --overlay: rgba(0, 0, 0, 0.5);
-}
-
+/* ===================================
+   GLOBAL STYLES
+=================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  background-color: #14161a;
+  color: #e0e0e0;
   overflow-x: hidden;
 }
 
-/* HEADER */
+/* ===================================
+   HEADER & NAVIGATION
+=================================== */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 80px;
-  background: rgba(20, 20, 25, 0.8);
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(10px);
+  padding: 20px 40px;
+  background-color: #1b1d23;
+  position: relative;
   z-index: 100;
 }
 
-/* Logo */
-.logo-area {
-  display: flex;
-  align-items: center;
-}
-
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.logo-img {
-  height: 150px; /* Groß auf Desktop */
-  width: auto;
-  filter: drop-shadow(0 0 12px rgba(0, 194, 255, 0.5));
-  transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-  transform: scale(1.05);
-}
-
-/* Markenname (zentriert oben) */
-.brand-name {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.logo-area img {
+  height: 70px;
 }
 
 .brand-name h2 {
-  color: var(--accent);
-  font-size: 2.5rem;
-  font-weight: 800;
-  text-shadow: 0 0 12px rgba(0, 194, 255, 0.7), 0 0 25px rgba(0, 194, 255, 0.4);
-  letter-spacing: 0.5px;
+  font-size: 1.8rem;
+  color: #00c2ff;
+  text-shadow: 0 0 10px #00c2ff;
 }
 
-/* Menü Toggle (immer sichtbar jetzt!) */
 .menu-toggle {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
   cursor: pointer;
-  z-index: 300;
-  position: absolute;
-  top: 35px;
-  right: 60px;
+  z-index: 1000;
 }
 
 .menu-toggle span {
+  display: block;
   height: 3px;
-  width: 30px;
-  background: var(--text);
-  margin-bottom: 6px;
-  border-radius: 2px;
-  transition: all 0.35s ease;
-  transform-origin: center;
+  background: #00c2ff;
+  border-radius: 5px;
+  transition: 0.3s;
 }
 
-/* X-Symbol */
 .menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-  width: 32px;
+  transform: rotate(45deg) translateY(8px);
 }
 
 .menu-toggle.open span:nth-child(2) {
@@ -103,193 +64,212 @@ header {
 }
 
 .menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-  width: 32px;
+  transform: rotate(-45deg) translateY(-8px);
 }
 
-/* NAVIGATION (ausgeblendet bis geöffnet) */
-nav {
+#nav-menu {
+  position: fixed;
+  right: -250px;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background: #1b1d23;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
-  position: fixed;
-  top: 0;
-  right: -300px;
-  height: 100vh;
-  width: 280px;
-  background: var(--card-bg);
-  padding: 100px 30px;
-  box-shadow: -3px 0 15px rgba(0, 0, 0, 0.4);
-  transition: right 0.5s ease;
-  z-index: 250;
+  padding-left: 30px;
+  transition: right 0.4s ease;
 }
 
-nav.active {
+#nav-menu.active {
   right: 0;
 }
 
-nav a {
+#nav-menu a {
+  color: #fff;
   text-decoration: none;
-  color: var(--text);
   font-size: 1.2rem;
-  font-weight: 500;
-  margin: 18px 0;
-  transition: color 0.3s ease;
+  margin: 15px 0;
+  transition: color 0.3s;
 }
 
-nav a:hover {
-  color: var(--accent);
+#nav-menu a:hover {
+  color: #00c2ff;
 }
 
-/* Overlay für Hintergrund */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--overlay);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease;
-  z-index: 200;
-}
-
-.overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* HERO SECTION */
+/* ===================================
+   HERO SECTION
+=================================== */
 .hero {
   text-align: center;
-  padding: 120px 20px 80px;
+  padding: 100px 20px 60px;
 }
 
 .hero h1 {
-  font-size: 2.8rem;
-  color: var(--accent);
+  font-size: 2.5rem;
+  color: #00c2ff;
   margin-bottom: 15px;
+  text-shadow: 0 0 10px #00c2ff;
 }
 
 .hero p {
   font-size: 1.2rem;
   color: #ccc;
-  margin-bottom: 25px;
+  max-width: 600px;
+  margin: 0 auto 30px;
 }
 
 .cta-btn {
-  background: var(--accent);
-  border: none;
+  padding: 12px 25px;
+  background-color: #00c2ff;
   color: #fff;
-  font-weight: bold;
-  padding: 14px 28px;
-  border-radius: 8px;
+  border: none;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .cta-btn:hover {
-  background: var(--hover);
+  background-color: #0099cc;
+  transform: scale(1.05);
 }
 
-/* PRICING SECTION */
+/* ===================================
+   PRICING SECTION
+=================================== */
 .pricing {
   display: flex;
   justify-content: center;
+  gap: 25px;
+  padding: 50px 20px;
   flex-wrap: wrap;
-  gap: 30px;
-  padding: 80px 20px;
 }
 
 .card {
-  background: var(--card-bg);
-  padding: 30px;
+  background: #1b1d23;
   border-radius: 15px;
-  width: 280px;
+  padding: 25px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  width: 280px;
+  box-shadow: 0 0 15px rgba(0, 194, 255, 0.2);
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 194, 255, 0.4);
 }
 
 .card h3 {
-  color: var(--accent);
+  color: #00c2ff;
   margin-bottom: 10px;
 }
 
 .price {
-  font-size: 2rem;
-  margin: 10px 0;
+  font-size: 1.4rem;
+  color: #fff;
+  margin-bottom: 15px;
 }
 
 .card ul {
   list-style: none;
-  text-align: left;
-  margin: 15px 0;
 }
 
 .card ul li {
-  padding: 5px 0;
-  font-size: 0.95rem;
+  margin: 10px 0;
   color: #ccc;
 }
 
-/* FOOTER */
+/* ===================================
+   SIGNUP FORM
+=================================== */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.signup-form input {
+  width: 320px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 50px;
+  background-color: #1b1d23;
+  color: #e0e0e0;
+  font-size: 1rem;
+  box-shadow: 0 0 6px rgba(0, 194, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.signup-form input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.8);
+}
+
+.signup-form input::placeholder {
+  color: #aaa;
+}
+
+.signup-form button {
+  width: 180px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  background-color: #00a8e0; /* Dunkleres Cyan passend zur Überschrift */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.signup-form button:hover {
+  background-color: #0090c7;
+  transform: scale(1.03);
+}
+
+.message {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+/* ===================================
+   FOOTER
+=================================== */
 footer {
   text-align: center;
-  padding: 25px;
-  border-top: 1px solid #222;
-  color: #aaa;
+  padding: 25px 10px;
+  background-color: #1b1d23;
+  color: #999;
   font-size: 0.9rem;
 }
 
 footer a {
-  color: var(--accent);
+  color: #00c2ff;
   text-decoration: none;
-  margin: 0 8px;
 }
 
 footer a:hover {
   text-decoration: underline;
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 900px) {
-  header {
-    padding: 8px 15px;
-    position: relative;
+/* ===================================
+   RESPONSIVE DESIGN
+=================================== */
+@media (max-width: 768px) {
+  .pricing {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .logo-img {
-    height: 45px;
-  }
-
-  .brand-name {
-    position: absolute;
-    top: 18px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .brand-name h2 {
-    font-size: 1.8rem;
-  }
-
-  .menu-toggle {
-    top: 20px;
-    right: 20px;
-  }
-
-  nav {
-    width: 220px;
-    padding: 80px 20px;
-  }
-
-  nav a {
-    font-size: 1.1rem;
+  .signup-form input {
+    width: 90%;
   }
 }
