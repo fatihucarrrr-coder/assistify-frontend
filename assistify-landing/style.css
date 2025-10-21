@@ -313,16 +313,17 @@ footer a:hover {
    RESPONSIVE DESIGN
 =================================== */
 @media (max-width: 768px) {
-  /* Header deutlich höher für Mobile */
-  header {
-    padding: 35px 25px; /* war 25px → jetzt höherer Balken */
+  /* Header überall gleich hoch */
+  header,
+  .signup-page header {
+    padding: 35px 25px; /* Einheitliche Höhe */
   }
 
   /* Logo: klein, links & leicht höher */
   .logo-area img {
     height: 75px !important;
     position: absolute;
-    top: 5px; /* leicht höher */
+    top: 5px;
     left: 10px;
   }
 
@@ -330,6 +331,7 @@ footer a:hover {
     font-size: 1.8rem;
   }
 
+  /* Registrierungsseite – Schriftzug bleibt oben rechts */
   .signup-page .brand-name {
     right: 25px;
     top: 25px;
