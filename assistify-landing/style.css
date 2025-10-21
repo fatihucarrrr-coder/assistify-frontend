@@ -313,15 +313,16 @@ footer a:hover {
    RESPONSIVE DESIGN
 =================================== */
 @media (max-width: 768px) {
+  /* Header wieder etwas höher machen */
   header {
-    padding: 15px 20px;
+    padding: 25px 25px; /* vorher 15px – wieder größerer Balken */
   }
 
-  /* Logo kleiner + höher + mehr links */
+  /* Logo kleiner + oben links */
   .logo-area img {
     height: 75px !important;
     position: absolute;
-    top: 5px;
+    top: 10px;
     left: 10px;
   }
 
