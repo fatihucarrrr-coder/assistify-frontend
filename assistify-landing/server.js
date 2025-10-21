@@ -1,12 +1,12 @@
 const express = require("express");
 const path = require("path");
-
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Statische Dateien (CSS, Bilder, JS)
+// Middleware für statische Dateien
 app.use(express.static(path.join(__dirname)));
 
-// Routen für deine HTML-Seiten
+// Routen
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -15,7 +15,7 @@ app.get("/signup", (req, res) => {
   res.sendFile(path.join(__dirname, "signup.html"));
 });
 
-app.get("/login", (req, res) => {
+app.get(["/login", "/login.html"], (req, res) => {
   res.sendFile(path.join(__dirname, "login.html"));
 });
 
@@ -27,11 +27,12 @@ app.get("/datenschutz", (req, res) => {
   res.sendFile(path.join(__dirname, "datenschutz.html"));
 });
 
-// Fallback für alle nicht gefundenen Seiten
+// 404 Fallback
 app.use((req, res) => {
-  res.status(404).send("Seite nicht gefunden");
+  res.status(404).send("<h1>404 - Seite nicht gefunden</h1>");
 });
 
-// Render verwendet PORT
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server läuft auf Port ${PORT}`));
+// Server starten
+app.listen(PORT, () => {
+  console.log(`Server läuft auf Port ${PORT}`);
+});
