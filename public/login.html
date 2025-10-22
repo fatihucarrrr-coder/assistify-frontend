@@ -1,0 +1,51 @@
+const express = require("express");
+const path = require("path");
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Form-Daten (POST) akzeptieren
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Statische Dateien aus /public
+app.use(express.static(path.join(__dirname, "public")));
+
+// --- Seitenrouten (optional, damit /login & /signup sicher gehen) ---
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.get(["/login", "/login.html"], (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "login.html"));
+});
+
+app.get(["/signup", "/signup.html"], (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "signup.html"));
+});
+
+app.get(["/impressum", "/impressum.html"], (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "impressum.html"));
+});
+
+app.get(["/datenschutz", "/datenschutz.html"], (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "datenschutz.html"));
+});
+
+// --- Dummy-POST-Endpunkte (später echte Logik / DB) ---
+app.post("/register", (req, res) => {
+  console.log("REGISTER payload:", req.body);
+  // TODO: Validierung + Speicherung + E-Mail
+  res.redirect("/login");
+});
+
+app.post("/login", (req, res) => {
+  console.log("LOGIN payload:", req.body);
+  // TODO: Nutzerprüfung
+  res.send("Login successful (dummy)!");
+});
+
+// --- Serverstart ---
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+});
