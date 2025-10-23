@@ -2,17 +2,77 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login – Assistify</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Login</h1>
-  <form action="#" method="post">
-    <input type="email" name="email" placeholder="E-Mail" required />
-    <input type="password" name="password" placeholder="Passwort" required />
-    <button type="submit">Anmelden</button>
-  </form>
-  <a href="signup.html">Noch kein Konto? Registrieren</a>
+  <header>
+    <div class="logo-area">
+      <a href="index.html" class="logo-link">
+        <img src="assistify_logo.png" alt="Assistify Logo" class="logo-img">
+      </a>
+    </div>
+    <div class="brand-name">
+      <h2>Assistify</h2>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Willkommen zurück!</h1>
+    <p>Melde dich bei deinem Assistify-Konto an, um fortzufahren.</p>
+    
+    <form id="login-form" class="signup-form">
+      <input type="email" id="email" name="email" placeholder="E-Mail-Adresse" required>
+      <input type="password" id="password" name="password" placeholder="Passwort" required>
+      <button type="submit" class="cta-btn">Anmelden</button>
+    </form>
+
+    <p class="redirect-text">
+      Noch kein Konto? <a href="signup.html">Jetzt registrieren</a>
+    </p>
+
+    <p id="message" class="message"></p>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Assistify | 
+      <a href="impressum.html">Impressum</a> | 
+      <a href="datenschutz.html">Datenschutz</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const form = document.getElementById('login-form');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = {
+        email: form.email.value,
+        password: form.password.value
+      };
+
+      try {
+        const res = await fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        if (!res.ok) throw new Error('Login fehlgeschlagen.');
+
+        const result = await res.text();
+        message.textContent = result;
+        message.style.color = 'limegreen';
+        form.reset();
+      } catch (err) {
+        message.textContent = 'Fehler beim Login. Bitte überprüfe deine Eingaben.';
+        message.style.color = 'red';
+      }
+    });
+  </script>
 </body>
 </html>
