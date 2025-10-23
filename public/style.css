@@ -41,6 +41,7 @@ header {
 .brand-name {
   position: absolute;
   left: 50%;
+  transform: translateX(-50%);
   top: 50%;
   transform: translate(-50%, -50%);
 }
@@ -63,9 +64,7 @@ header {
   text-align: right;
 }
 
-/* ===================================
-   BURGER-MENU (optional)
-=================================== */
+/* Menü */
 .menu-toggle {
   display: flex;
   flex-direction: column;
@@ -152,9 +151,6 @@ header {
   line-height: 1.6;
 }
 
-/* ===================================
-   BUTTONS
-=================================== */
 .cta-btn {
   padding: 14px 30px;
   background-color: #00c2ff;
@@ -174,16 +170,15 @@ header {
 }
 
 /* ===================================
-   SIGNUP & LOGIN SEITEN
+   REGISTRIERUNG & LOGIN (Signup + Login Seiten)
 =================================== */
-.signup-section,
-.hero {
+.signup-section, .login-section {
   text-align: center;
   padding: 100px 20px;
 }
 
 .signup-section h1,
-.hero h1 {
+.login-section h1 {
   font-size: 2.5rem;
   color: #00c2ff;
   margin-bottom: 20px;
@@ -192,21 +187,22 @@ header {
 }
 
 .signup-section p,
-.hero p {
+.login-section p {
   font-size: 1.1rem;
   color: #ccc;
   margin-bottom: 40px;
 }
 
-/* Formularfelder */
-.signup-form {
+/* Felder untereinander */
+.signup-form, .login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
 
-.signup-form input {
+.signup-form input,
+.login-form input {
   width: 320px;
   padding: 14px 20px;
   border: none;
@@ -218,17 +214,20 @@ header {
   transition: all 0.3s ease;
 }
 
-.signup-form input:focus {
+.signup-form input:focus,
+.login-form input:focus {
   outline: none;
   box-shadow: 0 0 10px rgba(0, 194, 255, 0.6);
   background-color: #14161a;
 }
 
-.signup-form input::placeholder {
+.signup-form input::placeholder,
+.login-form input::placeholder {
   color: #aaa;
 }
 
-.signup-form button {
+.signup-form button,
+.login-form button {
   padding: 14px 25px;
   border: none;
   border-radius: 50px;
@@ -241,29 +240,28 @@ header {
   box-shadow: 0 0 10px rgba(0, 194, 255, 0.3);
 }
 
-.signup-form button:hover {
+.signup-form button:hover,
+.login-form button:hover {
   background-color: #0090c7;
   transform: scale(1.05);
 }
 
-/* ===================================
-   LOGIN – "Noch kein Konto?" Text
-=================================== */
+/* Abstand unter dem Button – Login Seite */
 .redirect-text {
-  margin-top: 25px;
+  margin-top: 45px; /* Erhöhter Abstand */
   text-align: center;
   font-size: 0.95rem;
   color: #ccc;
 }
 
 .redirect-text a {
-  color: #a78bfa;
+  color: #a14eff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
 .redirect-text a:hover {
-  color: #c084fc;
+  color: #c77dff;
 }
 
 /* ===================================
@@ -346,6 +344,7 @@ footer a:hover {
   }
 
   .signup-page header {
+    padding: 35px 25px;
     min-height: 150px;
   }
 
