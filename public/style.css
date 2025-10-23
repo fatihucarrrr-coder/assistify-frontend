@@ -41,7 +41,6 @@ header {
 .brand-name {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
   top: 50%;
   transform: translate(-50%, -50%);
 }
@@ -64,7 +63,9 @@ header {
   text-align: right;
 }
 
-/* Menü */
+/* ===================================
+   BURGER-MENU (optional)
+=================================== */
 .menu-toggle {
   display: flex;
   flex-direction: column;
@@ -151,6 +152,9 @@ header {
   line-height: 1.6;
 }
 
+/* ===================================
+   BUTTONS
+=================================== */
 .cta-btn {
   padding: 14px 30px;
   background-color: #00c2ff;
@@ -170,14 +174,16 @@ header {
 }
 
 /* ===================================
-   REGISTRIERUNG (Signup-Seite)
+   SIGNUP & LOGIN SEITEN
 =================================== */
-.signup-section {
+.signup-section,
+.hero {
   text-align: center;
   padding: 100px 20px;
 }
 
-.signup-section h1 {
+.signup-section h1,
+.hero h1 {
   font-size: 2.5rem;
   color: #00c2ff;
   margin-bottom: 20px;
@@ -185,13 +191,14 @@ header {
   font-weight: 600;
 }
 
-.signup-section p {
+.signup-section p,
+.hero p {
   font-size: 1.1rem;
   color: #ccc;
   margin-bottom: 40px;
 }
 
-/* Felder untereinander */
+/* Formularfelder */
 .signup-form {
   display: flex;
   flex-direction: column;
@@ -237,6 +244,26 @@ header {
 .signup-form button:hover {
   background-color: #0090c7;
   transform: scale(1.05);
+}
+
+/* ===================================
+   LOGIN – "Noch kein Konto?" Text
+=================================== */
+.redirect-text {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.redirect-text a {
+  color: #a78bfa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.redirect-text a:hover {
+  color: #c084fc;
 }
 
 /* ===================================
@@ -313,19 +340,15 @@ footer a:hover {
    RESPONSIVE DESIGN
 =================================== */
 @media (max-width: 768px) {
-  /* Header überall gleich hoch */
   header {
     padding: 35px 25px;
     min-height: 130px;
   }
 
-  /* Sign-up-Seite bekommt etwas mehr Höhe */
   .signup-page header {
-    padding: 35px 25px;
-    min-height: 150px; /* +20px extra */
+    min-height: 150px;
   }
 
-  /* Logo: klein, links & leicht höher */
   .logo-area img {
     height: 75px !important;
     position: absolute;
@@ -337,7 +360,6 @@ footer a:hover {
     font-size: 1.8rem;
   }
 
-  /* Registrierungsseite – Schriftzug bleibt oben rechts */
   .signup-page .brand-name {
     right: 25px;
     top: 25px;
