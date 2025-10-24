@@ -39,8 +39,11 @@
     </p>
   </footer>
 
-  <script src="script.js"></script>
   <script>
+    // ===== Automatisches Jahr im Footer =====
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ===== Formularfunktion =====
     const form = document.getElementById('signup-form');
     const message = document.getElementById('message');
 
@@ -53,16 +56,31 @@
         password: form.password.value
       };
 
-      const res = await fetch('http://localhost:3000/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
+      // ⬇️ HIER Backend-Link einsetzen!
+      const backendURL = "https://assistify-server.onrender.com/register";
 
-      const result = await res.json();
-      message.textContent = result.message;
-      message.style.color = result.success ? 'limegreen' : 'red';
-      form.reset();
+      try {
+        const res = await fetch(backendURL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          message.textContent = "✅ Registrierung erfolgreich! Bitte prüfe deine E-Mails.";
+          message.style.color = "limegreen";
+          form.reset();
+        } else {
+          message.textContent = "❌ " + (result.message || "Fehler bei der Registrierung.");
+          message.style.color = "red";
+        }
+      } catch (err) {
+        console.error("Fehler beim Senden:", err);
+        message.textContent = "❌ Verbindung zum Server fehlgeschlagen.";
+        message.style.color = "red";
+      }
     });
   </script>
 </body>
