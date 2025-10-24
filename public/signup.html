@@ -26,7 +26,7 @@
       <input type="text" id="name" name="name" placeholder="Vor- und Nachname" required>
       <input type="email" id="email" name="email" placeholder="E-Mail-Adresse" required>
       <input type="password" id="password" name="password" placeholder="Passwort" required>
-      <button type="submit" class="cta-btn">Registrieren</button>
+      <button type="submit" class="cta-btn" id="submit-btn">Registrieren</button>
     </form>
 
     <p id="message" class="message"></p>
@@ -40,46 +40,51 @@
   </footer>
 
   <script>
-    // ===== Automatisches Jahr im Footer =====
+    // Jahr im Footer automatisch aktualisieren
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // ===== Formularfunktion =====
-    const form = document.getElementById('signup-form');
-    const message = document.getElementById('message');
+    const form = document.getElementById("signup-form");
+    const message = document.getElementById("message");
+    const button = document.getElementById("submit-btn");
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      // Sofortige visuelle Rückmeldung
+      button.disabled = true;
+      button.textContent = "Wird gesendet...";
+
       const data = {
-        name: form.name.value,
-        email: form.email.value,
-        password: form.password.value
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        password: form.password.value.trim(),
       };
 
-      // ⬇️ HIER Backend-Link einsetzen!
+      // 👉 Deine echte Backend-URL einsetzen!
       const backendURL = "https://assistify-server.onrender.com/register";
 
       try {
         const res = await fetch(backendURL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
         });
 
-        const result = await res.json();
-
-        if (result.success) {
-          message.textContent = "✅ Registrierung erfolgreich! Bitte prüfe deine E-Mails.";
-          message.style.color = "limegreen";
-          form.reset();
-        } else {
-          message.textContent = "❌ " + (result.message || "Fehler bei der Registrierung.");
-          message.style.color = "red";
+        if (!res.ok) {
+          throw new Error("Server antwortete mit Fehlerstatus");
         }
+
+        const result = await res.json();
+        message.textContent = result.message || "Registrierung erfolgreich! 🎉";
+        message.style.color = "limegreen";
+        form.reset();
       } catch (err) {
-        console.error("Fehler beim Senden:", err);
-        message.textContent = "❌ Verbindung zum Server fehlgeschlagen.";
+        console.error("Fehler:", err);
+        message.textContent = "❌ Fehler beim Verbinden mit dem Server.";
         message.style.color = "red";
+      } finally {
+        button.disabled = false;
+        button.textContent = "Registrieren";
       }
     });
   </script>
