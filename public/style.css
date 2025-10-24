@@ -248,7 +248,7 @@ header {
 
 /* Abstand unter dem Button – Login Seite */
 .redirect-text {
-  margin-top: 70px; /* vorher 45px → jetzt 70px (ca. 1.5–2 cm) */
+  margin-top: 110px; /* vorher 70px → jetzt 110px (~3–4 cm Abstand) */
   text-align: center;
   font-size: 0.95rem;
   color: #ccc;
