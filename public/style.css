@@ -26,18 +26,17 @@ header {
   align-items: center;
   padding: 25px 60px;
   background-color: #1b1d23;
-  position: relative;
-  z-index: 100; /* Header bleibt hinten */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* Logo links */
+/* Logo */
 .logo-area img {
-  height: 140px;
+  height: 120px;
 }
 
-/* ================================
-   TITEL "Assistify"
-================================ */
+/* Titel */
 .brand-name {
   position: absolute;
   left: 50%;
@@ -54,25 +53,30 @@ header {
   white-space: nowrap;
 }
 
-/* Registrierungsseite – Schrift rechts oben */
-.signup-page .brand-name {
-  position: absolute;
-  top: 40px;
-  right: 60px;
-  left: auto;
-  transform: none;
-  text-align: right;
+/* Navigation */
+nav.nav-desktop {
+  display: flex;
+  gap: 20px;
+}
+
+nav.nav-desktop a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav.nav-desktop a:hover {
+  color: #00c2ff;
 }
 
 /* ===================================
-   HERO SECTION (Startseite)
+   HERO SECTION
 =================================== */
 .hero {
   text-align: center;
   padding: 120px 20px 60px;
   flex: 1;
-  position: relative;
-  z-index: 200; /* <== Fix: über Header */
 }
 
 .hero h1 {
@@ -91,6 +95,7 @@ header {
   line-height: 1.6;
 }
 
+/* CTA Button */
 .cta-btn {
   padding: 14px 30px;
   background-color: #00c2ff;
@@ -107,106 +112,6 @@ header {
 .cta-btn:hover {
   background-color: #0099cc;
   transform: scale(1.05);
-}
-
-/* ===================================
-   REGISTRIERUNG & LOGIN (Signup + Login Seiten)
-=================================== */
-.signup-section, .login-section {
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.signup-section h1,
-.login-section h1 {
-  font-size: 2.5rem;
-  color: #00c2ff;
-  margin-bottom: 20px;
-  text-shadow: 0 0 15px #00c2ff;
-  font-weight: 600;
-}
-
-.signup-section p,
-.login-section p {
-  font-size: 1.1rem;
-  color: #ccc;
-  margin-bottom: 40px;
-}
-
-/* Felder untereinander */
-.signup-form, .login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  z-index: 250;
-}
-
-.signup-form input,
-.login-form input {
-  width: 320px;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 50px;
-  background: #0e1013;
-  color: #e0e0e0;
-  font-size: 1rem;
-  box-shadow: inset 0 0 8px rgba(0, 194, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.signup-form input:focus,
-.login-form input:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.6);
-  background-color: #14161a;
-}
-
-.signup-form input::placeholder,
-.login-form input::placeholder {
-  color: #aaa;
-}
-
-.signup-form button,
-.login-form button {
-  padding: 14px 25px;
-  border: none;
-  border-radius: 50px;
-  background-color: #00a8e0;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.3);
-  position: relative;
-  z-index: 300; /* <== Fix: Button immer klickbar */
-  pointer-events: auto;
-}
-
-.signup-form button:hover,
-.login-form button:hover {
-  background-color: #0090c7;
-  transform: scale(1.05);
-}
-
-/* Abstand unter dem Button – Login Seite */
-.redirect-text {
-  margin-top: 110px;
-  text-align: center;
-  font-size: 0.95rem;
-  color: #ccc;
-}
-
-.redirect-text a {
-  color: #a14eff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.redirect-text a:hover {
-  color: #c77dff;
 }
 
 /* ===================================
@@ -268,8 +173,6 @@ footer {
   color: #999;
   font-size: 0.9rem;
   margin-top: auto;
-  position: relative;
-  z-index: 50;
 }
 
 footer a {
@@ -286,28 +189,26 @@ footer a:hover {
 =================================== */
 @media (max-width: 768px) {
   header {
-    padding: 35px 25px;
-    min-height: 130px;
-  }
-
-  .signup-page header {
-    padding: 35px 25px;
-    min-height: 150px;
-  }
-
-  .logo-area img {
-    height: 75px !important;
-    position: absolute;
-    top: 5px;
-    left: 10px;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
   }
 
   .brand-name h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
-  .signup-page .brand-name {
-    right: 25px;
-    top: 25px;
+  nav.nav-desktop {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pricing {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
   }
 }
