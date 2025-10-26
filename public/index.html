@@ -12,7 +12,6 @@
     <!-- Logo links -->
     <div class="logo-area">
       <a href="index.html" class="logo-link">
-        <!-- Wichtig: relativer Pfad ohne Slash -->
         <img src="assistify_logo.png" alt="Assistify Logo" class="logo-img">
       </a>
     </div>
@@ -22,15 +21,8 @@
       <h2>Assistify</h2>
     </div>
 
-    <!-- Menü-Toggle -->
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
     <!-- Navigation -->
-    <nav id="nav-menu">
+    <nav id="nav-menu" class="nav-desktop">
       <a href="index.html">Home</a>
       <a href="login.html">Login</a>
       <a href="signup.html">Sign up</a>
@@ -55,6 +47,7 @@
         <li>E-Mail-Integration</li>
       </ul>
     </div>
+
     <div class="card">
       <h3>Business</h3>
       <p class="price">149 € / Monat</p>
@@ -64,6 +57,7 @@
         <li>24/7 Prioritäts-Support</li>
       </ul>
     </div>
+
     <div class="card">
       <h3>Einmalkauf</h3>
       <p class="price">499 € einmalig</p>
@@ -82,6 +76,9 @@
     </p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Jahr automatisch aktualisieren
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
