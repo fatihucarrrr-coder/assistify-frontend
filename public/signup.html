@@ -26,10 +26,10 @@
       <input type="text" id="name" name="name" placeholder="Vor- und Nachname" required>
       <input type="email" id="email" name="email" placeholder="E-Mail-Adresse" required>
       <input type="password" id="password" name="password" placeholder="Passwort" required>
-      <button type="submit" class="cta-btn" id="submit-btn">Registrieren</button>
+      <button type="submit" class="cta-btn">Registrieren</button>
     </form>
 
-    <p id="message" class="message"></p>
+    <p id="message" class="message" style="margin-top: 25px;"></p>
   </section>
 
   <footer>
@@ -40,51 +40,42 @@
   </footer>
 
   <script>
-    // Jahr im Footer automatisch aktualisieren
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const apiUrl = "https://assistify-server.onrender.com"; // ⚠️ Hier deine echte Backend-URL eintragen
 
-    const form = document.getElementById("signup-form");
-    const message = document.getElementById("message");
-    const button = document.getElementById("submit-btn");
+    const form = document.getElementById('signup-form');
+    const message = document.getElementById('message');
 
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Sofortige visuelle Rückmeldung
-      button.disabled = true;
-      button.textContent = "Wird gesendet...";
+      message.textContent = "⏳ Registrierung wird verarbeitet...";
+      message.style.color = "yellow";
 
       const data = {
-        name: form.name.value.trim(),
-        email: form.email.value.trim(),
-        password: form.password.value.trim(),
+        name: form.name.value,
+        email: form.email.value,
+        password: form.password.value
       };
 
-      // 👉 Deine echte Backend-URL einsetzen!
-      const backendURL = "https://assistify-server.onrender.com/register";
-
       try {
-        const res = await fetch(backendURL, {
+        const response = await fetch(`${apiUrl}/register`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
+          body: JSON.stringify(data)
         });
 
-        if (!res.ok) {
-          throw new Error("Server antwortete mit Fehlerstatus");
+        const text = await response.text();
+        if (response.ok) {
+          message.textContent = "✅ Registrierung erfolgreich! Eine E-Mail wurde gesendet.";
+          message.style.color = "limegreen";
+          form.reset();
+        } else {
+          message.textContent = "❌ Fehler: " + text;
+          message.style.color = "red";
         }
-
-        const result = await res.json();
-        message.textContent = result.message || "Registrierung erfolgreich! 🎉";
-        message.style.color = "limegreen";
-        form.reset();
       } catch (err) {
-        console.error("Fehler:", err);
-        message.textContent = "❌ Fehler beim Verbinden mit dem Server.";
+        message.textContent = "❌ Verbindung zum Server fehlgeschlagen.";
         message.style.color = "red";
-      } finally {
-        button.disabled = false;
-        button.textContent = "Registrieren";
       }
     });
   </script>
