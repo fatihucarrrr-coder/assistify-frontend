@@ -1,5 +1,5 @@
 /* ===================================
-   GLOBAL
+   GLOBAL STYLES
 =================================== */
 * {
   margin: 0;
@@ -75,7 +75,6 @@ header {
   transition: all 0.3s ease;
 }
 
-/* X-Animation */
 .menu-toggle.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -87,45 +86,58 @@ header {
 }
 
 /* ===================================
-   NAVIGATION
+   NAVIGATION (60% Bildschirmbreite)
 =================================== */
 #nav-menu {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 100%;
+  right: -60%;
+  width: 60%;
   height: 100vh;
   background: rgba(20, 22, 26, 0.98);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: right 0.5s ease;
+  transition: right 0.5s ease, opacity 0.4s ease;
   z-index: 999;
+  border-left: 2px solid rgba(0, 194, 255, 0.2);
+  box-shadow: -5px 0 15px rgba(0, 194, 255, 0.15);
+  opacity: 0;
 }
 
 #nav-menu.active {
   right: 0;
+  opacity: 1;
 }
 
 #nav-menu ul {
   list-style: none;
   text-align: center;
+  width: 100%;
 }
 
 #nav-menu ul li {
-  margin: 20px 0;
+  margin: 25px 0;
 }
 
 #nav-menu ul li a {
   color: #fff;
   font-size: 1.6rem;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: color 0.3s, text-shadow 0.3s;
 }
 
 #nav-menu ul li a:hover {
   color: #00c2ff;
   text-shadow: 0 0 10px #00c2ff;
+}
+
+/* Handy – etwas breiter */
+@media (max-width: 768px) {
+  #nav-menu {
+    width: 75%;
+    right: -75%;
+  }
 }
 
 /* ===================================
@@ -172,7 +184,7 @@ header {
 }
 
 /* ===================================
-   LOGIN / SIGNUP FORMULAR
+   LOGIN / SIGNUP STYLING
 =================================== */
 .signup-section, .login-section {
   text-align: center;
@@ -251,7 +263,7 @@ header {
 }
 
 /* ===================================
-   PRICING SECTION
+   PRICING
 =================================== */
 .pricing {
   display: flex;
