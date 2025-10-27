@@ -1,5 +1,5 @@
 /* ===================================
-   GLOBAL STYLES
+   GLOBAL
 =================================== */
 * {
   margin: 0;
@@ -18,7 +18,7 @@ body {
 }
 
 /* ===================================
-   HEADER & NAVIGATION
+   HEADER
 =================================== */
 header {
   display: flex;
@@ -34,7 +34,7 @@ header {
   height: 140px;
 }
 
-/* Titel */
+/* Titel mittig */
 .brand-name {
   position: absolute;
   left: 50%;
@@ -51,20 +51,55 @@ header {
   white-space: nowrap;
 }
 
-/* Navigation (wird durch Burger ersetzt) */
+/* ===================================
+   BURGER-MENÜ
+=================================== */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 21px;
+  cursor: pointer;
+  position: absolute;
+  right: 25px;
+  top: 40px;
+  z-index: 1000;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background: #00c2ff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* X-Animation */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===================================
+   NAVIGATION
+=================================== */
 #nav-menu {
   position: fixed;
   top: 0;
-  right: -250px;
-  width: 250px;
+  right: -100%;
+  width: 100%;
   height: 100vh;
-  background: #1b1d23;
-  flex-direction: column;
+  background: rgba(20, 22, 26, 0.98);
+  display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-left: 40px;
-  transition: right 0.4s ease;
-  gap: 20px;
+  align-items: center;
+  transition: right 0.5s ease;
   z-index: 999;
 }
 
@@ -72,17 +107,25 @@ header {
   right: 0;
 }
 
-#nav-menu a {
-  color: #ffffff;
+#nav-menu ul {
+  list-style: none;
+  text-align: center;
+}
+
+#nav-menu ul li {
+  margin: 20px 0;
+}
+
+#nav-menu ul li a {
+  color: #fff;
+  font-size: 1.6rem;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.3rem;
-  margin: 10px 0;
   transition: color 0.3s;
 }
 
-#nav-menu a:hover {
+#nav-menu ul li a:hover {
   color: #00c2ff;
+  text-shadow: 0 0 10px #00c2ff;
 }
 
 /* ===================================
@@ -92,8 +135,6 @@ header {
   text-align: center;
   padding: 120px 20px 60px;
   flex: 1;
-  position: relative;
-  z-index: 200;
 }
 
 .hero h1 {
@@ -128,6 +169,85 @@ header {
 .cta-btn:hover {
   background-color: #0099cc;
   transform: scale(1.05);
+}
+
+/* ===================================
+   LOGIN / SIGNUP FORMULAR
+=================================== */
+.signup-section, .login-section {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.signup-section h1, .login-section h1 {
+  font-size: 2.6rem;
+  color: #00c2ff;
+  text-shadow: 0 0 15px #00c2ff;
+  margin-bottom: 20px;
+}
+
+.signup-section p, .login-section p {
+  color: #bbb;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
+.signup-form, .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.signup-form input, .login-form input {
+  width: 320px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #0e1013;
+  color: #e0e0e0;
+  font-size: 1rem;
+  box-shadow: inset 0 0 8px rgba(0, 194, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+.signup-form input:focus, .login-form input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.6);
+  background-color: #16181d;
+}
+
+.signup-form button, .login-form button {
+  padding: 14px 25px;
+  border: none;
+  border-radius: 50px;
+  background-color: #00a8e0;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.3);
+}
+
+.signup-form button:hover, .login-form button:hover {
+  background-color: #0090c7;
+  transform: scale(1.05);
+}
+
+.redirect-text {
+  margin-top: 40px;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.redirect-text a {
+  color: #a14eff;
+  text-decoration: none;
+}
+
+.redirect-text a:hover {
+  color: #c77dff;
 }
 
 /* ===================================
@@ -198,41 +318,4 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
-}
-
-/* ===================================
-   BURGER-MENÜ (immer sichtbar)
-=================================== */
-.menu-toggle {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 28px;
-  height: 21px;
-  cursor: pointer;
-  position: absolute;
-  right: 25px;
-  top: 40px;
-  z-index: 1000;
-}
-
-.menu-toggle span {
-  display: block;
-  height: 3px;
-  background: #00c2ff;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-/* Animation für das "X" beim Öffnen */
-.menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
 }

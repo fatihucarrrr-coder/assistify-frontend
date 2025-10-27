@@ -21,7 +21,7 @@
       <h2>Assistify</h2>
     </div>
 
-    <!-- Menü-Toggle (Burger-Menü) -->
+    <!-- Menü-Toggle -->
     <div class="menu-toggle" id="menu-toggle">
       <span></span>
       <span></span>
@@ -30,11 +30,13 @@
 
     <!-- Navigation -->
     <nav id="nav-menu" class="nav-desktop">
-      <a href="index.html">Home</a>
-      <a href="login.html">Login</a>
-      <a href="signup.html">Sign up</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign up</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
     </nav>
   </header>
 
@@ -84,10 +86,8 @@
   </footer>
 
   <script>
-    // Jahr automatisch aktualisieren
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Burger-Menü öffnen/schließen
     const toggle = document.getElementById("menu-toggle");
     const nav = document.getElementById("nav-menu");
 
