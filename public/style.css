@@ -27,17 +27,14 @@ header {
   padding: 25px 60px;
   background-color: #1b1d23;
   position: relative;
-  z-index: 100; /* Header bleibt hinten */
+  z-index: 100;
 }
 
-/* Logo links */
 .logo-area img {
   height: 140px;
 }
 
-/* ================================
-   TITEL "Assistify"
-================================ */
+/* Titel */
 .brand-name {
   position: absolute;
   left: 50%;
@@ -54,14 +51,21 @@ header {
   white-space: nowrap;
 }
 
-/* Registrierungsseite – Schrift rechts oben */
-.signup-page .brand-name {
-  position: absolute;
-  top: 40px;
-  right: 60px;
-  left: auto;
-  transform: none;
-  text-align: right;
+/* Navigation */
+#nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+#nav-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+#nav-menu a:hover {
+  color: #00c2ff;
 }
 
 /* ===================================
@@ -72,7 +76,7 @@ header {
   padding: 120px 20px 60px;
   flex: 1;
   position: relative;
-  z-index: 200; /* <== Fix: über Header */
+  z-index: 200;
 }
 
 .hero h1 {
@@ -107,106 +111,6 @@ header {
 .cta-btn:hover {
   background-color: #0099cc;
   transform: scale(1.05);
-}
-
-/* ===================================
-   REGISTRIERUNG & LOGIN (Signup + Login Seiten)
-=================================== */
-.signup-section, .login-section {
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.signup-section h1,
-.login-section h1 {
-  font-size: 2.5rem;
-  color: #00c2ff;
-  margin-bottom: 20px;
-  text-shadow: 0 0 15px #00c2ff;
-  font-weight: 600;
-}
-
-.signup-section p,
-.login-section p {
-  font-size: 1.1rem;
-  color: #ccc;
-  margin-bottom: 40px;
-}
-
-/* Felder untereinander */
-.signup-form, .login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  z-index: 250;
-}
-
-.signup-form input,
-.login-form input {
-  width: 320px;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 50px;
-  background: #0e1013;
-  color: #e0e0e0;
-  font-size: 1rem;
-  box-shadow: inset 0 0 8px rgba(0, 194, 255, 0.2);
-  transition: all 0.3s ease;
-}
-
-.signup-form input:focus,
-.login-form input:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.6);
-  background-color: #14161a;
-}
-
-.signup-form input::placeholder,
-.login-form input::placeholder {
-  color: #aaa;
-}
-
-.signup-form button,
-.login-form button {
-  padding: 14px 25px;
-  border: none;
-  border-radius: 50px;
-  background-color: #00a8e0;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.3);
-  position: relative;
-  z-index: 300; /* <== Fix: Button immer klickbar */
-  pointer-events: auto;
-}
-
-.signup-form button:hover,
-.login-form button:hover {
-  background-color: #0090c7;
-  transform: scale(1.05);
-}
-
-/* Abstand unter dem Button – Login Seite */
-.redirect-text {
-  margin-top: 110px;
-  text-align: center;
-  font-size: 0.95rem;
-  color: #ccc;
-}
-
-.redirect-text a {
-  color: #a14eff;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.redirect-text a:hover {
-  color: #c77dff;
 }
 
 /* ===================================
@@ -268,8 +172,6 @@ footer {
   color: #999;
   font-size: 0.9rem;
   margin-top: auto;
-  position: relative;
-  z-index: 50;
 }
 
 footer a {
@@ -282,62 +184,32 @@ footer a:hover {
 }
 
 /* ===================================
-   RESPONSIVE DESIGN
-=================================== */
-@media (max-width: 768px) {
-  header {
-    padding: 35px 25px;
-    min-height: 130px;
-  }
-
-  .signup-page header {
-    padding: 35px 25px;
-    min-height: 150px;
-  }
-
-  .logo-area img {
-    height: 75px !important;
-    position: absolute;
-    top: 5px;
-    left: 10px;
-  }
-
-  .brand-name h2 {
-    font-size: 1.8rem;
-  }
-
-  .signup-page .brand-name {
-    right: 25px;
-    top: 25px;
-  }
-}
-/* ===================================
    BURGER-MENÜ
 =================================== */
 .menu-toggle {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 22px;
+  width: 28px;
+  height: 21px;
   cursor: pointer;
   position: absolute;
   right: 25px;
   top: 40px;
-  z-index: 300;
+  z-index: 1000;
 }
 
 .menu-toggle span {
   display: block;
   height: 3px;
   background: #00c2ff;
-  border-radius: 3px;
+  border-radius: 5px;
   transition: all 0.3s ease;
 }
 
-/* Animation beim Öffnen */
+/* Animation für das "X" beim Öffnen */
 .menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
 .menu-toggle.open span:nth-child(2) {
@@ -345,16 +217,20 @@ footer a:hover {
 }
 
 .menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Menü mobil verstecken / zeigen */
+/* Mobile Navigation */
 @media (max-width: 900px) {
+  .menu-toggle {
+    display: flex;
+  }
+
   #nav-menu {
     position: fixed;
     top: 0;
-    right: -260px;
-    width: 260px;
+    right: -250px;
+    width: 250px;
     height: 100vh;
     background: #1b1d23;
     flex-direction: column;
@@ -363,6 +239,7 @@ footer a:hover {
     padding-left: 40px;
     transition: right 0.4s ease;
     gap: 20px;
+    z-index: 999;
   }
 
   #nav-menu.active {
@@ -372,9 +249,5 @@ footer a:hover {
   #nav-menu a {
     font-size: 1.3rem;
     margin: 10px 0;
-  }
-
-  .menu-toggle {
-    display: flex;
   }
 }
