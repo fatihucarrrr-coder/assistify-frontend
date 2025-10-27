@@ -21,6 +21,13 @@
       <h2>Assistify</h2>
     </div>
 
+    <!-- Menü-Toggle (Burger-Menü) -->
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <!-- Navigation -->
     <nav id="nav-menu" class="nav-desktop">
       <a href="index.html">Home</a>
@@ -34,7 +41,7 @@
   <section class="hero">
     <h1>Ihr smarter KI-Kundensupport</h1>
     <p>Automatisieren Sie Ihren Kundensupport mit KI – und sparen Sie täglich Zeit, Geld und Nerven.</p>
-    <button class="cta-btn">Jetzt starten</button>
+    <button class="cta-btn" onclick="window.location.href='login.html'">Jetzt starten</button>
   </section>
 
   <section class="pricing">
@@ -79,6 +86,15 @@
   <script>
     // Jahr automatisch aktualisieren
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Burger-Menü Steuerung
+    const toggle = document.getElementById("menu-toggle");
+    const nav = document.getElementById("nav-menu");
+
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("open");
+      nav.classList.toggle("active");
+    });
   </script>
 </body>
 </html>
