@@ -32,6 +32,7 @@ header {
 
 .logo-area img {
   height: 140px;
+  transition: 0.3s ease;
 }
 
 /* Titel mittig */
@@ -86,13 +87,13 @@ header {
 }
 
 /* ===================================
-   NAVIGATION (60% Bildschirmbreite)
+   NAVIGATION (nur 45 % Breite)
 =================================== */
 #nav-menu {
   position: fixed;
   top: 0;
-  right: -60%;
-  width: 60%;
+  right: -45%;
+  width: 45%;
   height: 100vh;
   background: rgba(20, 22, 26, 0.98);
   display: flex;
@@ -132,11 +133,22 @@ header {
   text-shadow: 0 0 10px #00c2ff;
 }
 
-/* Handy – etwas breiter */
+/* Handy – Menü etwas breiter */
 @media (max-width: 768px) {
   #nav-menu {
-    width: 75%;
-    right: -75%;
+    width: 70%;
+    right: -70%;
+  }
+
+  .logo-area img {
+    height: 90px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+
+  .brand-name {
+    top: 60px;
   }
 }
 
@@ -184,7 +196,7 @@ header {
 }
 
 /* ===================================
-   LOGIN / SIGNUP STYLING
+   LOGIN / SIGNUP
 =================================== */
 .signup-section, .login-section {
   text-align: center;
