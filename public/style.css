@@ -76,24 +76,25 @@ header {
   transition: all 0.3s ease;
 }
 
+/* X beim Öffnen – gerader & symmetrisch */
 .menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(6px, 6px);
 }
 .menu-toggle.open span:nth-child(2) {
   opacity: 0;
 }
 .menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* ===================================
-   NAVIGATION (nur 45 % Breite)
+   NAVIGATION (nur 25 % Breite)
 =================================== */
 #nav-menu {
   position: fixed;
   top: 0;
-  right: -45%;
-  width: 45%;
+  right: -25%;
+  width: 25%;
   height: 100vh;
   background: rgba(20, 22, 26, 0.98);
   display: flex;
@@ -133,22 +134,33 @@ header {
   text-shadow: 0 0 10px #00c2ff;
 }
 
-/* Handy – Menü etwas breiter */
+/* ===================================
+   MOBILE ANPASSUNGEN
+=================================== */
 @media (max-width: 768px) {
+  header {
+    padding: 45px 25px; /* wieder höherer grauer Balken */
+  }
+
   #nav-menu {
-    width: 70%;
-    right: -70%;
+    width: 45%;
+    right: -45%;
   }
 
   .logo-area img {
-    height: 90px;
+    height: 70px; /* kleineres Logo */
     position: absolute;
-    top: 10px;
-    left: 20px;
+    top: 5px;
+    left: 10px;
   }
 
   .brand-name {
-    top: 60px;
+    top: 55px;
+  }
+
+  .menu-toggle {
+    top: 35px;
+    right: 20px;
   }
 }
 
@@ -196,85 +208,6 @@ header {
 }
 
 /* ===================================
-   LOGIN / SIGNUP
-=================================== */
-.signup-section, .login-section {
-  text-align: center;
-  padding: 120px 20px;
-}
-
-.signup-section h1, .login-section h1 {
-  font-size: 2.6rem;
-  color: #00c2ff;
-  text-shadow: 0 0 15px #00c2ff;
-  margin-bottom: 20px;
-}
-
-.signup-section p, .login-section p {
-  color: #bbb;
-  margin-bottom: 40px;
-  font-size: 1.1rem;
-}
-
-.signup-form, .login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
-}
-
-.signup-form input, .login-form input {
-  width: 320px;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 12px;
-  background: #0e1013;
-  color: #e0e0e0;
-  font-size: 1rem;
-  box-shadow: inset 0 0 8px rgba(0, 194, 255, 0.25);
-  transition: all 0.3s ease;
-}
-
-.signup-form input:focus, .login-form input:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.6);
-  background-color: #16181d;
-}
-
-.signup-form button, .login-form button {
-  padding: 14px 25px;
-  border: none;
-  border-radius: 50px;
-  background-color: #00a8e0;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  box-shadow: 0 0 10px rgba(0, 194, 255, 0.3);
-}
-
-.signup-form button:hover, .login-form button:hover {
-  background-color: #0090c7;
-  transform: scale(1.05);
-}
-
-.redirect-text {
-  margin-top: 40px;
-  color: #ccc;
-  font-size: 0.95rem;
-}
-
-.redirect-text a {
-  color: #a14eff;
-  text-decoration: none;
-}
-
-.redirect-text a:hover {
-  color: #c77dff;
-}
-
-/* ===================================
    PRICING
 =================================== */
 .pricing {
@@ -311,16 +244,6 @@ header {
   color: #fff;
   margin-bottom: 20px;
   font-weight: bold;
-}
-
-.card ul {
-  list-style: none;
-}
-
-.card ul li {
-  margin: 12px 0;
-  color: #ccc;
-  font-size: 1rem;
 }
 
 /* ===================================
