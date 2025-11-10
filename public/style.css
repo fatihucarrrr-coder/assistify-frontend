@@ -76,24 +76,25 @@ header {
   transition: all 0.3s ease;
 }
 
+/* X beim Öffnen – gerader & symmetrisch */
 .menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(6px, 6px);
 }
 .menu-toggle.open span:nth-child(2) {
   opacity: 0;
 }
 .menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* ===================================
-   NAVIGATION (nur 45 % Breite)
+   NAVIGATION (nur 30 % Breite)
 =================================== */
 #nav-menu {
   position: fixed;
   top: 0;
-  right: -45%;
-  width: 45%;
+  right: -30%;
+  width: 30%;
   height: 100vh;
   background: rgba(20, 22, 26, 0.98);
   display: flex;
@@ -133,22 +134,33 @@ header {
   text-shadow: 0 0 10px #00c2ff;
 }
 
-/* Handy – Menü etwas breiter */
+/* ===================================
+   MOBILE ANPASSUNGEN
+=================================== */
 @media (max-width: 768px) {
+  header {
+    padding: 55px 25px; /* größerer grauer Balken */
+  }
+
   #nav-menu {
-    width: 70%;
-    right: -70%;
+    width: 60%; /* Menü weniger weit offen */
+    right: -60%;
   }
 
   .logo-area img {
-    height: 90px;
+    height: 65px; /* kleineres Logo */
     position: absolute;
-    top: 10px;
-    left: 20px;
+    top: 5px;
+    left: 10px;
   }
 
   .brand-name {
     top: 60px;
+  }
+
+  .menu-toggle {
+    top: 35px;
+    right: 20px;
   }
 }
 
@@ -311,16 +323,6 @@ header {
   color: #fff;
   margin-bottom: 20px;
   font-weight: bold;
-}
-
-.card ul {
-  list-style: none;
-}
-
-.card ul li {
-  margin: 12px 0;
-  color: #ccc;
-  font-size: 1rem;
 }
 
 /* ===================================
